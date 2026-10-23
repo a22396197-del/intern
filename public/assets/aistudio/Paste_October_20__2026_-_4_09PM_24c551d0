@@ -1,0 +1,1707 @@
+# FREE INTERN — ULTIMATE MASTER PROMPT
+## Complete AI-Powered Internship, Resume, Skills and Career Development Platform
+### Google AI Studio Build Mode — Existing Project Upgrade and Full Implementation
+
+Act as a senior full-stack developer, AI engineer, UI/UX designer, database architect, authentication specialist, security engineer, and QA tester.
+
+Your task is to inspect, improve, complete, and test my existing application named **Free Intern**.
+
+Free Intern is an AI-powered internship and career development platform designed to help students discover genuine internship opportunities, understand their eligibility, improve their resumes, develop relevant skills, prepare for interviews, track applications, and plan their careers.
+
+This is an existing project. Do not create a new application from scratch, discard the existing code, or replace functioning features with a simplified demo.
+
+**Your primary responsibility is to inspect the existing codebase, identify incomplete or broken functionality, and implement the requirements below directly into the current application.**
+
+Do not stop after generating a plan, designing screens, or writing sample components. Complete the implementation as far as the available environment permits, run the application, test the real workflows, and report any remaining limitations honestly.
+
+---
+
+# 1. EXISTING PROJECT AUDIT AND PRESERVATION
+
+Before making changes:
+
+1. Inspect the existing application structure, frontend, backend, database, authentication, routing, API integrations, and installed dependencies.
+2. Identify all existing pages and features.
+3. Determine which features are fully functional, partially functional, broken, or only visual placeholders.
+4. Identify hardcoded data, fake AI responses, non-functional buttons, incomplete event handlers, missing database operations, and incorrect routing.
+5. Preserve working components and compatible integrations.
+6. Reuse the existing database and authentication provider when appropriate.
+7. Fix the actual causes of missing features rather than adding duplicate screens.
+8. Avoid unnecessary dependency changes or complete architectural rewrites.
+9. Back up or preserve the existing implementation before making substantial changes.
+10. Maintain existing user records and application data wherever possible.
+
+Create an internal implementation checklist and work through it systematically.
+
+Do not declare a feature complete merely because its page or button exists.
+
+---
+
+# 2. APPLICATION IDENTITY AND DESIGN SYSTEM
+
+Application name: **Free Intern**
+
+Tagline: **Discover Internships. Build Skills. Start Your Career.**
+
+Use a consistent white-and-purple design throughout the entire application.
+
+### Color palette
+
+- Primary purple: `#6C3CE9`
+- Deep purple: `#4B239A`
+- White background: `#FFFFFF`
+- Light lavender: `#F8F7FC`
+- Main text: `#242038`
+- Border: `#E8E3F5`
+
+### Design requirements
+
+- Professional, modern SaaS-style application.
+- Attractive but clean and easy-to-understand interface.
+- Consistent spacing, alignment, typography, cards, buttons, and icons.
+- Smooth and lightweight animations.
+- Responsive design for mobile, tablet, laptop, and desktop.
+- Accessible forms, readable contrast, keyboard navigation, and clear labels.
+- Professional loading, empty, error, and success states.
+- Consistent sidebar, header, profile menu, and page navigation.
+- Simple English suitable for college students and beginners.
+- Clear visual distinction between primary and secondary actions.
+
+Avoid clutter, excessive animations, fake testimonials, fabricated statistics, misleading badges, and unnecessary decorative elements.
+
+Do not replace the purple-and-white theme with a blue or black theme.
+
+---
+
+# 3. ANIMATED ENTRY SCREEN, LOGIN, SIGNUP AND AUTHENTICATION
+
+## Current requirement
+
+The application must not allow a user to enter the dashboard directly without authentication.
+
+Implement a proper login and signup experience.
+
+### Entry screen
+
+When a visitor opens Free Intern:
+
+1. Display a professional animated Free Intern logo.
+2. Show the application name and tagline.
+3. Use a subtle purple glow or light animation.
+4. Allow the visitor to continue to the login page.
+5. Transition smoothly to the authentication interface.
+
+The animation must be lightweight and must not interfere with accessibility.
+
+### Login page
+
+Create a dedicated login page with:
+
+- Free Intern logo.
+- Email input.
+- Password input.
+- Show/hide password.
+- Login button.
+- Forgot password.
+- Create Account / Sign Up.
+- Continue with Google, when configured.
+- Appropriate authentication error messages.
+- Links to Terms of Service and Privacy Policy.
+
+### Signup page
+
+Create a proper signup workflow with validation, password handling, account creation, and onboarding.
+
+Collect only the information required to create an account and begin the student profile.
+
+### Authentication requirements
+
+- Use the existing authentication provider if it is working.
+- Otherwise integrate a suitable provider, such as Supabase Auth or Firebase Authentication.
+- Implement real authentication instead of simulated login success.
+- Support session persistence and logout.
+- Protect all student-only pages.
+- Redirect unauthenticated users to the login page.
+- Redirect authenticated students to the appropriate dashboard.
+- Prevent users from accessing another student's private records.
+- Implement password reset when supported by the provider.
+- Handle session expiration, failed login, and network errors.
+- Do not hardcode passwords or credentials.
+
+If Google OAuth requires external configuration, explain the exact configuration required.
+
+**Acceptance criterion:** Opening the application without a valid session must lead to the entry/login flow, not directly to the protected dashboard.
+
+---
+
+# 4. STUDENT ONBOARDING AND PERSONALIZED PROFILE
+
+After signup, guide the student through a clear onboarding flow.
+
+Collect the relevant information:
+
+- Full name.
+- Email.
+- Profile photo, optionally.
+- College or university.
+- Degree.
+- Department or specialization.
+- Current year and semester.
+- Graduation year.
+- Location, if provided.
+- Career interests.
+- Target internship roles.
+- Current technical skills.
+- Domain competencies.
+- Skills the student wants to learn.
+- Preferred work mode.
+- Preferred location.
+- Paid or unpaid preference.
+- Preferred duration and availability.
+- Projects.
+- Certifications and achievements, if any.
+- Resume upload, optionally.
+
+Allow students to skip optional fields and complete their profile later.
+
+Validate the information required for accurate eligibility checks.
+
+Use actual profile data to personalize internship recommendations, resume analysis, career guidance, and interview questions.
+
+Do not invent missing profile details or assume the student has a skill merely because it is related to their degree.
+
+Calculate profile completion from actual completed fields.
+
+Persist profile changes in the database and restore them after refresh and subsequent login.
+
+---
+
+# 5. REALISTIC STUDENT PROFILE PAGE
+
+Create a professional, editable student profile rather than a simple list of text fields.
+
+## A. Profile header
+
+Display:
+
+- Profile photo or avatar.
+- Student's actual name.
+- College.
+- Degree and department.
+- Current year.
+- Graduation year.
+- Career goal.
+- Preferred internship role.
+- Profile completion.
+- Edit Profile button.
+
+Use only information provided by the authenticated student.
+
+## B. Education
+
+Allow editing of:
+
+- College or university.
+- Degree and department.
+- Current year or semester.
+- Graduation year.
+- Relevant coursework.
+- Academic achievements, if supplied.
+- GPA or marks, only if provided by the student.
+
+## C. Technical Competencies
+
+Create a separate section titled **Technical Competencies**.
+
+Organize skills into categories:
+
+- Programming languages.
+- Frameworks and libraries.
+- Databases.
+- Development tools.
+- Cloud and deployment.
+- Testing tools.
+- Other technical technologies.
+
+For each skill, support:
+
+- Skill name.
+- Self-reported proficiency level.
+- Evidence, such as a project, course, or certification.
+- Related project.
+- Last updated date.
+
+Allow the student to add, edit, and remove skills.
+
+Clearly distinguish self-reported skills from skills demonstrated through an assessment or project.
+
+Do not automatically label a student advanced without evidence.
+
+## D. Domain Competencies
+
+Create a separate **Domain Competencies** section.
+
+Possible domains include:
+
+- Artificial Intelligence and Machine Learning.
+- Web Development.
+- Full-Stack Development.
+- Data Analytics.
+- Cybersecurity.
+- Cloud Computing.
+- Software Engineering.
+- Other relevant domains.
+
+Allow the student to record their learning level, relevant projects, and interests for each domain.
+
+Do not assume domain mastery based only on the student's degree.
+
+## E. Projects
+
+Provide a real project management section containing:
+
+- Project title.
+- Project description.
+- Problem being solved.
+- Technologies used.
+- Student's actual contribution.
+- Skills demonstrated.
+- Project status.
+- Repository link, if available.
+- Live demonstration link, if available.
+
+## F. Certifications and achievements
+
+Allow students to add genuine courses, certifications, competitions, and achievements.
+
+Do not invent certifications or awards.
+
+## G. Resume and career goals
+
+Display:
+
+- Current uploaded resume.
+- Latest resume analysis.
+- Target roles.
+- Career interests.
+- Skills currently being learned.
+- Preferred internship types.
+- Relevant learning progress.
+
+All profile sections must be editable and persist in the database.
+
+---
+
+# 6. MAIN NAVIGATION AND APPLICATION STRUCTURE
+
+Create clear navigation with the following pages:
+
+1. Dashboard.
+2. Discover Internship.
+3. Government Internships.
+4. My Applications / Application Tracker.
+5. Saved Internships.
+6. AI Resume Scanner.
+7. AI Intern Assistant.
+8. AI Career Assistant.
+9. AI Mock Interview.
+10. Current Relevant Skills.
+11. Skill Development.
+12. Skill Badges and Assessment.
+13. PM Internship.
+14. My Profile.
+15. Notifications.
+16. Settings.
+17. Post Internship, when permitted.
+18. Admin Panel, for authorized administrators only.
+19. Logout.
+
+Avoid duplicate navigation items when two functions can be organized under a clear section. Keep Government Internships and PM Internship accessible as distinct destinations.
+
+Every navigation item must open the correct working page.
+
+Use a responsive sidebar on desktop and a mobile-friendly navigation menu.
+
+---
+
+# 7. PERSONALIZED STUDENT DASHBOARD
+
+Create a personalized dashboard using the authenticated student's actual data.
+
+Display:
+
+- Welcome message.
+- Profile completion.
+- Recommended internships.
+- Eligible internships.
+- Internships requiring skill improvement.
+- Government internship recommendations.
+- Application status summary.
+- Upcoming deadlines.
+- Saved internships.
+- Latest resume analysis.
+- Current skill gaps.
+- Skill-development progress.
+- Upcoming interview preparation tasks.
+- Recent notifications.
+- Personalized next actions.
+
+Create useful dashboard cards for:
+
+- Verified Internships.
+- AI Recommendations.
+- My Applications.
+- Saved Internships.
+- Closing Soon.
+- Resume Analysis.
+- Skill Development.
+
+Each card must link to the appropriate page.
+
+Calculate all metrics from real database records.
+
+Never use hardcoded application counts, fake progress, fabricated placement rates, or invented deadlines.
+
+When no data is available, show an informative empty state and a useful next action.
+
+---
+
+# 8. DISCOVER INTERNSHIP — ALL CATEGORIES MUST BE VISIBLE
+
+This is one of the most important features.
+
+The Discover Internship page must not display only internships for which the student is eligible.
+
+It must show relevant opportunities across all three eligibility outcomes and separately identify AI recommendations.
+
+## A. Required internship categories
+
+Display these categories clearly as separate tabs, cards, or sections:
+
+1. Online Internships.
+2. Offline Internships.
+3. Paid Internships.
+4. Unpaid Internships.
+5. AI-Suggested Internships.
+
+Hybrid internships must also be supported through the work-mode filter.
+
+**Government Internships must remain a separate section or dedicated page.**
+
+Do not remove existing categories when implementing the AI recommendations.
+
+## B. AI-Recommended for You
+
+Display a prominent section titled:
+
+**Recommended for You by AI**
+
+Generate up to 10–15 recommendations when enough suitable, verified listings exist.
+
+Use the student's:
+
+- Profile.
+- Education.
+- Department.
+- Current year.
+- Graduation year.
+- Technical skills.
+- Domain competencies.
+- Resume.
+- Projects.
+- Career interests.
+- Preferred location.
+- Work mode.
+- Paid or unpaid preference.
+- Eligibility requirements.
+- Available application deadlines.
+
+For every recommendation, show:
+
+- Internship title.
+- Organization.
+- Role or domain.
+- Location and work mode.
+- Stipend or unpaid status.
+- Duration.
+- Application deadline, if verified.
+- Required skills.
+- Eligibility status.
+- Why it was recommended.
+- Matching skills.
+- Missing skills or requirements.
+- Official source.
+- Verification status.
+- Application link.
+
+If a match score is displayed, calculate it using a documented method. Explain that the score indicates relevance, not selection probability.
+
+Show fewer than 10–15 recommendations if fewer genuine opportunities are available.
+
+Do not invent listings to meet a target number.
+
+Do not display a generic static list and label it AI-generated.
+
+If AI generation fails, display an error state and retry option.
+
+## C. Eligible Internships
+
+Create a visible section or filter titled:
+
+**Internships You Are Eligible For**
+
+Show internships for which all known mandatory requirements match the student's verified profile.
+
+For each listing, explain which requirements the student meets.
+
+Eligibility must not be treated as a guarantee of selection.
+
+## D. Not Eligible Yet
+
+Create a visible section or filter titled:
+
+**Internships You Are Not Eligible For Yet**
+
+Display relevant internships even when the student currently fails one or more mandatory requirements.
+
+For each listing, show:
+
+- The exact mandatory requirement not met.
+- Why the student is currently ineligible.
+- The relevant profile information used for comparison.
+- Skills the student can improve.
+- Requirements that cannot be changed through skill development.
+- Missing profile information.
+- Practical next steps.
+- Similar internships the student may be eligible for now.
+
+Do not hide these internships merely because the student is ineligible.
+
+Do not label an internship ineligible because a preferred skill is missing if the mandatory eligibility conditions are satisfied.
+
+## E. Potentially Eligible / More Information Needed
+
+Create a distinct state for situations where information is incomplete or unclear.
+
+Explain what information is required to determine eligibility.
+
+Never treat unknown information as proof that a requirement is met or failed.
+
+## F. Individual internship eligibility checker
+
+Every internship must have a working **Check Eligibility** action.
+
+Display one of these statuses:
+
+- Eligible.
+- Not Eligible Yet.
+- Potentially Eligible / More Information Needed.
+- Closed / Expired.
+
+Compare the actual published requirements with the actual student profile.
+
+Explain:
+
+- Mandatory requirements met.
+- Mandatory requirements not met.
+- Preferred skills missing.
+- Education requirements.
+- Current year and graduation year.
+- Required experience, if any.
+- Required projects or certifications, if any.
+- Location and work-mode requirements.
+- Missing profile information.
+- Suggested next steps.
+
+Distinguish mandatory requirements from desirable skills.
+
+If the required graduation year does not match, do not suggest that learning a skill will solve that eligibility issue.
+
+## G. Who is eligible for this internship?
+
+For every internship, show a separate section explaining the type of student who meets the published criteria.
+
+Where supported by verified data, show applicable:
+
+- Degrees and departments.
+- Academic years.
+- Graduation years.
+- Required skills.
+- Experience.
+- Certifications.
+- Location requirements.
+- Other published criteria.
+
+Explain eligibility criteria without revealing other students' names, private profiles, or application records.
+
+## H. Internship search and filters
+
+Support search by:
+
+- Internship title.
+- Organization.
+- Skill.
+- Domain.
+- Location.
+
+Provide working filters for:
+
+- Online, offline, and hybrid.
+- Paid and unpaid.
+- Stipend.
+- Duration.
+- Education.
+- Year of study.
+- Eligibility.
+- Deadline.
+- Verification status.
+- Government or private organization.
+
+Support sorting by relevance, newest, and closing date.
+
+All filters must use actual internship records.
+
+## I. Separate card actions
+
+Every internship card must contain distinct actions:
+
+- View Details.
+- Check Eligibility.
+- Apply Now.
+- Save Internship.
+
+Never combine View, Eligibility, and Apply into one button.
+
+Apply Now must open the verified official application page or the configured internal application form.
+
+Do not claim an external application has been submitted automatically.
+
+---
+
+# 9. GOVERNMENT INTERNSHIPS — DEDICATED SECTION
+
+Create a dedicated navigation item and page titled **Government Internships**.
+
+Include verified opportunities from official sources, such as:
+
+- Central government departments.
+- State government departments.
+- Government research institutions.
+- Official government internship schemes.
+- Verified public-sector programs.
+- PM Internship Scheme when relevant and currently available.
+
+For each listing, display available verified information:
+
+- Official program name.
+- Department or organization.
+- Description.
+- Eligibility.
+- Degree and academic-year criteria.
+- Graduation-year criteria.
+- Age criteria, if applicable.
+- Stipend or benefits, if published.
+- Duration.
+- Location and mode.
+- Opening and closing dates.
+- Required documents.
+- Selection process, if published.
+- Official notification.
+- Official application link.
+- Source and verification status.
+- Last verification date.
+
+Do not invent government programs, benefits, eligibility requirements, deadlines, or URLs.
+
+Separate government-run programs from private internships.
+
+Clearly identify open, upcoming, closed, and expired opportunities based on verified information.
+
+If no current suitable listings are available, show an honest empty state and verified official portal links.
+
+---
+
+# 10. INTERNSHIP DETAILS AND APPLY WORKFLOW
+
+Create a complete internship details page containing:
+
+- Organization.
+- Description.
+- Responsibilities.
+- Required and preferred skills.
+- Eligibility.
+- Education requirements.
+- Work mode and location.
+- Stipend and duration.
+- Deadline.
+- Source.
+- Verification status.
+- Application instructions.
+- Official application link.
+
+## Internal application
+
+When internal applications are supported:
+
+1. Open an application form.
+2. Validate required fields.
+3. Allow appropriate resume attachment.
+4. Submit to the backend.
+5. Store the application record.
+6. Show confirmation only after successful submission.
+7. Update the Application Tracker.
+8. Prevent accidental duplicate submissions.
+
+## External application
+
+When the organization uses an external application portal:
+
+1. Open the official link.
+2. Inform the student that the application takes place externally.
+3. Allow the student to return and record the application.
+4. Save the application date and status.
+5. Show the record in the Application Tracker.
+
+Do not falsely claim an external application was submitted.
+
+If a valid application URL is unavailable, display a clear explanation.
+
+---
+
+# 11. SAVED INTERNSHIPS
+
+Implement a persistent Saved Internships feature.
+
+Allow students to:
+
+- Save an internship.
+- Remove a saved internship.
+- View all saved opportunities.
+- Search and filter saved records.
+- Open internship details.
+- Check eligibility.
+- Apply through the correct workflow.
+
+Update dashboard metrics from the actual database.
+
+Do not use temporary frontend state as the only storage for saved internships.
+
+---
+
+# 12. APPLICATION TRACKER WITH REJECTION ANALYSIS
+
+Keep the existing working Application Tracker and improve it.
+
+Support these statuses:
+
+- Saved.
+- Planning to Apply.
+- Applied.
+- Assessment.
+- Interview.
+- Offer Received.
+- Rejected.
+- Withdrawn.
+
+Each application record should contain:
+
+- Internship title.
+- Organization.
+- Application date.
+- Status.
+- Application link.
+- Relevant deadline.
+- Notes.
+- Status history where supported.
+
+Provide search, filters, status editing, activity history, and appropriate deletion confirmation.
+
+All records must persist in the database and belong to the correct authenticated student.
+
+## A. Rejected applications
+
+When an application is marked Rejected, show a dedicated **Rejection Analysis and Improvement Plan** section.
+
+Display:
+
+- Organization and internship.
+- Rejection date, if known.
+- Official rejection feedback, if provided.
+- Skills to improve.
+- Resume improvements.
+- Relevant project suggestions.
+- Interview preparation recommendations.
+- Alternative internships.
+- A personalized action checklist.
+
+## B. Rejection reason accuracy
+
+Never invent a rejection reason.
+
+If no official feedback exists, display:
+
+"The organization has not provided a confirmed rejection reason. The AI suggestions below identify possible areas for improvement based on your profile, resume, and the internship requirements. They are not confirmed reasons for rejection."
+
+Clearly separate official feedback from AI-generated suggestions.
+
+Do not claim that a skill gap caused a rejection unless evidence supports it.
+
+## C. Personalized improvement plan
+
+Compare the student's actual resume and profile with the rejected internship's verified requirements.
+
+For each suggested improvement, show:
+
+- Skill or requirement.
+- Why it matters.
+- Existing evidence from the student's profile.
+- Learning roadmap.
+- Practice task.
+- Suggested project.
+- Similar internships.
+- Next recommended action.
+
+Distinguish between skill gaps, academic eligibility, interview performance, resume quality, and unknown factors.
+
+Allow students to mark improvement tasks complete.
+
+Refresh relevant recommendations after profile, resume, or skill updates.
+
+Save the analysis and progress to the database.
+
+---
+
+# 13. AI RESUME SCANNER — REAL CONTENT, USEFUL FEEDBACK
+
+Keep the existing AI Resume Scanner and improve it without removing working functionality.
+
+It must analyze the actual uploaded resume rather than returning fabricated or generic results.
+
+## A. Resume upload and extraction
+
+Support PDF and DOCX where compatible with the existing stack.
+
+Implement:
+
+1. Secure file upload.
+2. File-type and size validation.
+3. Text extraction.
+4. Extraction validation.
+5. AI analysis using the extracted content.
+6. Structured result validation.
+7. Persistent report storage.
+8. Clear loading and error states.
+9. Retry when appropriate.
+10. Resume replacement and deletion.
+
+If a file cannot be read, explain the problem. Do not fabricate a report from an unreadable document.
+
+Use OCR only when a suitable OCR service is configured.
+
+## B. Target role selection
+
+Allow the student to select a target role, such as:
+
+- Full-Stack Development Intern.
+- Frontend Development Intern.
+- Backend Development Intern.
+- AI/ML Intern.
+- Python Developer Intern.
+- Java Developer Intern.
+- Data Analyst Intern.
+- Other available roles.
+
+Where possible, allow the student to select a specific real internship listing.
+
+Compare the resume with the selected role's actual requirements.
+
+## C. Resume report
+
+Analyze:
+
+- Education.
+- Technical skills.
+- Domain knowledge.
+- Projects.
+- Experience.
+- Certifications.
+- Achievements.
+- Resume structure.
+- Readability.
+- Relevant technical terminology.
+- Internship-specific requirements.
+
+Display:
+
+- Resume score out of 100.
+- Section-wise scores.
+- Strengths.
+- Weaknesses.
+- Missing or weak skills.
+- Recommended keywords.
+- Skills to develop.
+- Project suggestions.
+- Resume improvement plan.
+- Internship compatibility.
+- Action checklist.
+
+Use a documented scoring rubric. Do not generate random scores or guarantee selection.
+
+## D. Recommended Keywords to Add
+
+The **Recommended Keywords to Add** section must not remain blank when valid suggestions can be generated.
+
+Generate recommendations using:
+
+1. The actual resume text.
+2. The selected target role.
+3. The actual internship description, when selected.
+4. Required and preferred skills.
+5. Technical terminology relevant to the role.
+
+For each keyword, display:
+
+- Keyword.
+- Why it matters.
+- Whether it is already present.
+- Which requirement it relates to.
+- Where it could fit in the resume.
+- A truthful example of how to include it.
+
+Separate keywords into:
+
+- Already present.
+- Safe to include based on existing evidence.
+- Relevant but not yet demonstrated.
+- Skills to learn before claiming them.
+
+Never encourage the student to claim skills, experience, projects, or qualifications they do not possess.
+
+If no valid keyword recommendations exist, explain why instead of showing an unexplained blank section.
+
+## E. Skills I Should Develop
+
+Generate a personalized list of skills based on the student's actual current abilities and target internship.
+
+For each skill, display:
+
+- Skill name.
+- Why it matters.
+- Current evidence in the resume.
+- Required level, if published.
+- Priority.
+- Learning order.
+- Practice exercise.
+- Project idea.
+- Relevant Skill Development page.
+- Related internships.
+
+Prioritize relevant skills rather than displaying a generic technology list.
+
+## F. How to Improve My Resume
+
+Provide specific recommendations for:
+
+- Project descriptions.
+- Technical contributions.
+- Skill presentation.
+- Education section.
+- Relevant coursework.
+- Project outcomes.
+- Resume readability.
+- Grammar and clarity.
+- Role-specific alignment.
+- Missing evidence.
+
+Only suggest measurable results when genuine results are available. Never invent numerical achievements.
+
+## G. Personalized Resume Improvement Plan
+
+Organize actions into:
+
+- Fix First.
+- Improve Next.
+- Learn Before Adding.
+- Optional Improvements.
+
+Each item must contain a clear next action.
+
+## H. Resume score and history
+
+Explain the scoring method and its limitations.
+
+Save the analysis against the authenticated user's account.
+
+Allow students to review previous reports and compare changes when enough information exists.
+
+Clearly explain that an AI score is advisory, not an official recruitment score or guarantee of selection.
+
+---
+
+# 14. AI MOCK INTERVIEW — SELECT ROLE FIRST, THEN GENERATE EXACTLY 15 QUESTIONS
+
+This feature must be implemented as a genuine role-specific AI interview workflow.
+
+Do not keep showing the old predefined question set.
+
+## A. Step 1: Category selection
+
+When the student opens AI Mock Interview, first show a dedicated category-selection screen.
+
+Possible categories include:
+
+- Full-Stack Development.
+- Frontend Development.
+- Backend Development.
+- AI and Machine Learning.
+- Data Analytics.
+- Python Development.
+- Java Development.
+- Other available internship roles.
+
+The available categories should reflect the supported roles and internship listings.
+
+**Do not display interview questions before the student selects a category and confirms a target role or internship.**
+
+## B. Step 2: Target internship selection
+
+Allow the student to:
+
+- Choose a specific internship from Discover Internship.
+- Search for a target role.
+- Select an experience level.
+- Choose Practice Mode or Mock Interview Mode.
+
+When a specific internship is selected, retrieve its actual description, responsibilities, required skills, and experience level.
+
+## C. Step 3: AI question generation
+
+After category and role selection, use the configured AI model to generate exactly **15 relevant questions** for the selected session.
+
+Do not merely rename a fixed list of questions as AI-generated.
+
+Generate questions using:
+
+- Selected role.
+- Selected internship description.
+- Required skills.
+- Experience level.
+- Relevant projects, if available.
+- Prior session history, where available, to reduce repetition.
+
+## D. Full-Stack Development interview
+
+For a Full-Stack Development internship, generate 15 questions relevant to its actual requirements.
+
+Depending on the listing, questions may cover:
+
+- HTML and CSS.
+- JavaScript.
+- Frontend frameworks.
+- Backend development.
+- REST APIs.
+- Databases and SQL.
+- Authentication.
+- Git and version control.
+- Debugging.
+- Project architecture.
+- Frontend-backend integration.
+- Practical problem-solving.
+- The student's own projects.
+
+Do not force irrelevant advanced topics into a beginner-level internship.
+
+## E. AI/ML interview
+
+For an AI/ML internship, generate 15 questions relevant to the actual listing.
+
+Depending on the requirements, cover:
+
+- Python.
+- Data preprocessing.
+- NumPy and Pandas.
+- Machine learning fundamentals.
+- Supervised and unsupervised learning.
+- Relevant algorithms.
+- Training and evaluation.
+- Overfitting and underfitting.
+- Statistics.
+- Model selection.
+- AI/ML projects.
+- Practical problem-solving.
+
+## F. Other roles
+
+For Data Analytics, focus on relevant SQL, spreadsheets, data cleaning, visualization, statistics, and analytical reasoning.
+
+For Frontend, Backend, Python, Java, or other roles, generate questions based on the selected internship's real requirements.
+
+Do not force the same questions into every category.
+
+## G. Question generation rules
+
+- Generate exactly 15 questions per successful session.
+- Avoid duplicate questions within the same session.
+- Adapt difficulty to the student's level.
+- Include relevant technical, practical, and project-based questions.
+- Do not claim the questions are confirmed questions from a particular employer.
+- Explain that these are AI-generated practice questions, not guaranteed real interview questions.
+- If the AI fails to generate all 15 questions, display an error and retry option.
+- Never silently fall back to the old static question list.
+- Do not claim 15 questions were generated if fewer are available.
+
+## H. Practice Mode
+
+- Show one question at a time.
+- Allow the student to submit an answer.
+- Offer hints or explanations where appropriate.
+- Give useful feedback.
+- Allow review of answers.
+
+## I. Mock Interview Mode
+
+- Present the questions in an interview-style flow.
+- Support text answers.
+- Add voice input only if it is actually configured and working.
+- Track progress through the 15 questions.
+- Allow the student to complete and review the session.
+
+## J. Final interview report
+
+Display:
+
+- Questions answered out of 15.
+- Overall score using a documented rubric.
+- Strengths.
+- Areas to improve.
+- Technical knowledge gaps.
+- Communication feedback where assessable.
+- Topics to revise.
+- Recommended exercises.
+- Relevant learning roadmaps.
+- Suggestions for the next practice session.
+
+Do not score unanswered questions as if the student answered correctly.
+
+Save interview sessions and results to the authenticated user's account.
+
+Allow students to view previous sessions and progress over time.
+
+---
+
+# 15. CURRENT RELEVANT SKILLS — BASED ON ACTUAL INTERNSHIP DATA
+
+Create a dedicated section titled **Current Relevant Skills**.
+
+The objective is to help students discover skills relevant to their target internships and career paths.
+
+Analyze actual active, verified internship listings to identify frequently requested skills.
+
+Possible categories include:
+
+- Frontend Development.
+- Backend Development.
+- Full-Stack Development.
+- Python Programming.
+- Java Programming.
+- AI and Machine Learning.
+- Data Analytics.
+- SQL and Databases.
+- Cloud Computing.
+- Cybersecurity.
+- Software Testing.
+- DevOps.
+- UI/UX Design.
+
+These are examples, not assumptions about current market demand.
+
+For each skill, display:
+
+- Skill name.
+- Related roles.
+- Number of active verified listings requiring the skill.
+- Relevant internships.
+- Skill level.
+- Why it matters.
+- Student's current proficiency, if known.
+- Whether the student needs to improve it.
+- Learning roadmap.
+- Practice tasks.
+- Project suggestions.
+- Related opportunities.
+- Data source.
+- Last-updated date.
+
+Do not claim that a skill is trending or in high demand without supporting listing data.
+
+If the dataset is small, clearly state that results reflect the available listings, not the entire job market.
+
+Refresh the analysis when listings change or the source data is updated.
+
+---
+
+# 16. SKILL DEVELOPMENT — PERSONALIZED LEARNING FOR ALL STUDENTS
+
+Redesign Skill Development as an attractive and beginner-friendly learning center.
+
+Support learning paths for:
+
+- Python.
+- Java.
+- C++.
+- Data Structures and Algorithms.
+- Frontend Development.
+- Backend Development.
+- Full-Stack Development.
+- AI and Machine Learning.
+- Data Analytics.
+- SQL and Databases.
+- Cloud Computing.
+- Cybersecurity.
+- Software Testing.
+- DevOps.
+- Other supported career domains.
+
+Adapt recommendations to the student's target role, current skills, and available internship requirements.
+
+Do not overwhelm students with every learning path at once.
+
+## Four-stage learning structure
+
+### Stage 1 — Learn
+
+Provide:
+
+- Simple explanations.
+- Prerequisites.
+- Beginner-friendly topics.
+- Reliable learning resources.
+- Clear topic order.
+- Examples.
+
+### Stage 2 — Practice
+
+Provide:
+
+- Exercises.
+- Quizzes.
+- Coding tasks.
+- Practical assignments.
+- Hints and explanations.
+- Progress tracking.
+
+### Stage 3 — Build
+
+Provide:
+
+- Beginner, intermediate, and advanced project ideas.
+- Project objectives.
+- Required technologies.
+- Implementation milestones.
+- Expected outcomes.
+- Skills demonstrated.
+
+### Stage 4 — Prepare and Apply
+
+Provide:
+
+- Internship-specific skill requirements.
+- Interview practice.
+- Resume improvements.
+- Portfolio suggestions.
+- Suitable internships.
+- Eligibility checks.
+
+## Personalization
+
+For each student, identify:
+
+- Skills already demonstrated.
+- Skills to strengthen.
+- Skills missing from target internship requirements.
+- Recommended learning order.
+- Suggested projects.
+- Suitable internships after improvement.
+
+Save progress, completed topics, resources, and project status.
+
+Show real learning resources and valid links.
+
+Do not invent course completion, assessment results, or badges.
+
+---
+
+# 17. AI CAREER AND INTERNSHIP ASSISTANT
+
+Create or improve a dedicated AI assistant that uses the student's authorized profile and relevant application data.
+
+It should help with:
+
+- Finding internships.
+- Understanding AI recommendations.
+- Checking eligibility.
+- Explaining missing requirements.
+- Improving resumes.
+- Rejection analysis.
+- Choosing skills to learn.
+- Creating learning roadmaps.
+- Finding government internships.
+- Preparing for interviews.
+- Suggesting projects.
+- Drafting application emails.
+- Building a career plan.
+
+Provide practical, personalized answers in simple English.
+
+Support Tamil or Thanglish when the configured AI model supports it.
+
+Use actual internship listings, the student's profile, resume analysis, and saved progress when relevant.
+
+Do not fabricate internship openings, official policies, rejection reasons, or eligibility decisions.
+
+If information is missing, ask a focused question or clearly state the limitation.
+
+Use a secure server-side AI integration.
+
+---
+
+# 18. SKILL BADGES AND ASSESSMENTS
+
+Preserve the existing Skill Badges / Assessment feature and make it useful.
+
+Implement:
+
+- Clearly explained assessments.
+- Skill-specific questions.
+- Appropriate scoring criteria.
+- Results and feedback.
+- Areas to improve.
+- Relevant learning roadmaps.
+- Progress history.
+- Badge criteria.
+- Completed assessments.
+
+Award badges only when the student satisfies the published criteria.
+
+Do not grant badges simply because the student opens a page or clicks a button.
+
+If an assessment result is AI-evaluated, explain the evaluation method and its limitations.
+
+Connect assessment results to the student's Technical Competencies and Skill Development pages.
+
+---
+
+# 19. PM INTERNSHIP PAGE
+
+Preserve and improve the existing PM Internship page.
+
+Use official government sources to present:
+
+- What the scheme is.
+- Current eligibility.
+- Benefits and stipend, if officially published.
+- Duration.
+- Required documents.
+- Application process.
+- Application dates.
+- Official links.
+- Frequently asked questions.
+
+Verify time-sensitive details against official sources.
+
+Display source attribution and last-verification dates when available.
+
+Never invent eligibility rules, benefits, deadlines, or openings.
+
+If current official information cannot be retrieved, explain the limitation and provide a verified official portal link when available.
+
+Keep PM Internship distinct from other government and private internship listings.
+
+---
+
+# 20. POST INTERNSHIP AND ADMIN PANEL
+
+Preserve the existing Post Internship feature where applicable.
+
+Create a secure admin workflow for authorized administrators to:
+
+- Add internship listings.
+- Edit listings.
+- Verify organizations and sources.
+- Validate application URLs.
+- Update eligibility criteria.
+- Update deadlines.
+- Mark expired opportunities.
+- Review reported listings.
+- Manage approved data sources.
+- Monitor basic platform activity.
+
+Only authorized users may access administrative functions.
+
+Enforce permissions on the backend, not just by hiding buttons.
+
+Do not allow students to publish listings unless that capability is explicitly supported and appropriately reviewed.
+
+Never mark a listing verified without evidence.
+
+---
+
+# 21. NOTIFICATIONS AND SETTINGS
+
+Implement:
+
+- Notification center.
+- Application status updates.
+- Relevant upcoming deadlines.
+- Saved internship reminders where supported.
+- Skill-development milestones.
+- Profile settings.
+- Resume management.
+- Notification preferences.
+- Account settings.
+- Logout.
+- Account deletion where supported.
+
+Use real data and events.
+
+Ask for consent before sending external notifications.
+
+Do not fabricate notifications or send messages that the system has not actually generated.
+
+---
+
+# 22. REAL INTERNSHIP DATA AND VERIFICATION
+
+Use genuine internship opportunities from appropriate sources, including:
+
+- Official company career pages.
+- Authorized APIs.
+- Authorized internship feeds.
+- Verified partner organizations.
+- Official government portals.
+- Administrator-verified listings.
+
+Store the following where available:
+
+- Internship ID.
+- Title.
+- Organization.
+- Description.
+- Skills.
+- Mandatory eligibility.
+- Preferred skills.
+- Education requirements.
+- Location.
+- Work mode.
+- Stipend.
+- Duration.
+- Application deadline.
+- Official application URL.
+- Source URL.
+- Verification status.
+- Last-checked timestamp.
+- Expiry status.
+
+Never invent companies, internships, stipends, deadlines, eligibility criteria, or official application links.
+
+Respect source terms and access restrictions.
+
+If live data is unavailable, provide an honest empty state and a way for authorized administrators to add verified listings.
+
+Clearly distinguish verified, unverified, closed, and expired listings.
+
+Do not claim real-time availability unless the source supports it.
+
+---
+
+# 23. BACKEND, DATABASE AND PERSISTENT STORAGE
+
+Inspect the existing technology stack before changing it.
+
+Reuse working integrations wherever possible.
+
+If necessary, use an appropriate secure backend, database, and authentication service, such as Supabase/PostgreSQL or Firebase, according to the existing architecture.
+
+Required data entities include:
+
+- Users.
+- Student profiles.
+- Technical competencies.
+- Domain competencies.
+- Projects.
+- Certifications.
+- Organizations.
+- Internship listings.
+- Internship source records.
+- Saved internships.
+- Applications.
+- Application status history.
+- Rejection analysis.
+- Resume files.
+- Resume analysis reports.
+- AI recommendations.
+- Interview sessions.
+- Interview questions and answers.
+- Skill roadmaps.
+- Learning progress.
+- Assessments and badges.
+- Notifications.
+- Administrative permissions.
+
+Implement appropriate relationships, validation, authorization, and migrations.
+
+Persist important records in the backend, not only in frontend state or localStorage.
+
+Student records must remain available after refresh and re-login.
+
+Use database authorization and row-level security where supported.
+
+Protect private resumes and student records.
+
+Never expose privileged database credentials, service-role keys, or private AI API keys in frontend code.
+
+---
+
+# 24. AI INTEGRATION REQUIREMENTS
+
+Audit every feature advertised as AI-powered.
+
+These include:
+
+- Internship recommendations.
+- Eligibility explanations.
+- Resume analysis.
+- Recommended keywords.
+- Skill gap analysis.
+- Rejection improvement suggestions.
+- Interview question generation.
+- AI Intern Assistant.
+- AI Career Assistant.
+- Personalized skill development.
+
+For each feature:
+
+1. Verify that a real AI service is called.
+2. Supply relevant and authorized data.
+3. Validate the returned response.
+4. Check that it relates to the selected user, role, or internship.
+5. Save results where appropriate.
+6. Handle errors and retries.
+7. Avoid presenting AI-generated suggestions as verified facts.
+8. Use source data for official internship information.
+9. Avoid generic fallback responses being shown as personalized results.
+10. Do not fabricate results when the AI service fails.
+
+Use the existing configured AI provider where possible.
+
+If an API key, OAuth credential, database connection, or official data source is missing, state exactly what must be configured.
+
+Keep all secret credentials on the server.
+
+---
+
+# 25. USER EXPERIENCE AND FUNCTIONALITY AUDIT
+
+Audit every visible control.
+
+Test:
+
+- Logo and entry flow.
+- Login and signup.
+- Password reset.
+- Google authentication.
+- Sidebar navigation.
+- Dashboard cards.
+- Internship category selection.
+- AI recommendations.
+- Search and filters.
+- Eligibility checks.
+- View Details.
+- Apply Now.
+- Save Internship.
+- Application Tracker.
+- Rejection Analysis.
+- Resume upload and analysis.
+- Recommended Keywords.
+- Skill Development.
+- AI Mock Interview.
+- Profile editing.
+- Technical Competencies.
+- Domain Competencies.
+- Projects.
+- Certifications.
+- Notifications.
+- Settings.
+- Logout.
+- Admin workflows.
+
+Every visible button must perform its intended action.
+
+Remove misleading clickable styling from non-interactive elements.
+
+Do not substitute alerts or static modals for real application workflows.
+
+Use proper loading, empty, success, and error states.
+
+---
+
+# 26. REQUIRED END-TO-END TESTING
+
+After implementation, run available builds, type checks, lint checks, and automated tests.
+
+Test the following real scenarios.
+
+### Authentication
+
+1. Open the application without a session.
+2. Verify that the login page appears.
+3. Create an account and log in.
+4. Verify protected routes.
+5. Log out and verify the login flow.
+
+### Profile
+
+6. Complete the profile.
+7. Add Technical Competencies.
+8. Add Domain Competencies.
+9. Add a project.
+10. Edit and save the profile.
+11. Refresh the page and verify persistence.
+
+### Internship discovery
+
+12. Open Discover Internship.
+13. Verify Online, Offline, Paid, Unpaid, and AI-Suggested categories.
+14. Verify AI recommendations use the actual profile and available listings.
+15. Verify eligible internships appear.
+16. Verify relevant not-yet-eligible internships also appear.
+17. Verify missing information is not treated as a confirmed eligibility failure.
+18. Open an internship and check its eligibility report.
+19. Verify separate View Details, Check Eligibility, Save, and Apply actions.
+20. Open Government Internships.
+21. Verify source and deadline information where available.
+
+### Application tracker
+
+22. Record an application.
+23. Update its status.
+24. Mark an application Rejected.
+25. Verify confirmed feedback is separated from AI suggestions.
+26. Verify the improvement plan uses the actual internship requirements.
+27. Refresh and verify persistence.
+
+### Resume scanner
+
+28. Upload a real PDF or DOCX resume.
+29. Verify text extraction.
+30. Verify the report uses actual resume content.
+31. Verify Recommended Keywords is populated when valid suggestions exist.
+32. Verify Skills to Develop is personalized.
+33. Verify Resume Improvement Plan contains actionable steps.
+34. Verify the system does not invent experience or achievements.
+
+### Mock interview
+
+35. Open AI Mock Interview.
+36. Verify questions are not displayed before category and role selection.
+37. Select Full-Stack Development and generate exactly 15 relevant questions.
+38. Select AI/ML and generate exactly 15 relevant questions.
+39. Verify the generated questions relate to the selected role or internship.
+40. Submit answers and verify the report reflects actual responses.
+41. Refresh and verify saved interview history.
+
+### Skill development and career assistant
+
+42. Open Current Relevant Skills.
+43. Verify demand counts come from available listing data.
+44. Start a learning roadmap.
+45. Complete a learning task and verify progress persistence.
+46. Ask the AI Career Assistant for relevant guidance.
+47. Verify recommendations use the correct profile and available data.
+
+### Security and quality
+
+48. Verify that one student cannot access another student's records.
+49. Test upload errors, AI failures, missing listings, and empty states.
+50. Test mobile, tablet, and desktop layouts.
+51. Verify that working features have not regressed.
+
+Fix all issues that can be resolved in the available environment.
+
+Do not claim successful testing without evidence.
+
+---
+
+# 27. IMPLEMENTATION PRIORITY
+
+Implement the work in this order.
+
+**Phase 1:** Audit the existing code, preserve working features, and fix authentication and protected routes.
+
+**Phase 2:** Complete profile editing, Technical Competencies, Domain Competencies, persistence, and dashboard data.
+
+**Phase 3:** Implement Discover Internship categories, AI recommendations, eligible listings, not-yet-eligible listings, and eligibility reports.
+
+**Phase 4:** Complete Government Internships, PM Internship, real listing sources, verification, and application links.
+
+**Phase 5:** Fix Resume Scanner extraction, Recommended Keywords, Skills to Develop, Resume Improvement Plan, and report persistence.
+
+**Phase 6:** Complete Application Tracker, rejection analysis, and personalized improvement plans.
+
+**Phase 7:** Implement category-first AI Mock Interview with exactly 15 role-specific questions per session.
+
+**Phase 8:** Complete Current Relevant Skills, Skill Development, assessments, badges, and career assistance.
+
+**Phase 9:** Complete notifications, admin permissions, security, responsive UI, integration tests, and deployment preparation.
+
+Do not stop after implementing only the first phase. Continue until the requested functionality has been implemented or a genuine external dependency prevents completion.
+
+---
+
+# 28. FINAL IMPLEMENTATION REPORT
+
+After working on the existing project, provide a clear report containing:
+
+1. Existing features inspected.
+2. Missing or broken features identified.
+3. Actual causes of the issues.
+4. Components and files changed.
+5. Features implemented.
+6. Existing features preserved.
+7. Backend and database changes.
+8. AI integrations connected.
+9. Authentication and credential setup required.
+10. Internship data sources configured.
+11. Build and test results.
+12. Features that have been verified to work.
+13. Features blocked by missing configuration.
+14. Remaining bugs or limitations.
+15. Steps required to run and deploy the app.
+
+Do not claim completion merely because code was generated.
+
+If an external API, OAuth credential, official internship feed, or database configuration is missing, state it clearly and provide the exact setup steps.
+
+## FINAL ACCEPTANCE CRITERIA
+
+The application is not complete until the following requirements are satisfied or clearly identified as blocked by a genuine external dependency:
+
+- Login and signup work, and unauthenticated users cannot enter the protected dashboard.
+- Discover Internship shows AI recommendations, eligible internships, and relevant internships the student is not yet eligible for.
+- Eligibility explanations compare actual requirements with actual profile information.
+- Government Internships has a separate section.
+- Resume Scanner provides meaningful Recommended Keywords, Skills to Develop, and a personalized Resume Improvement Plan.
+- Application Tracker explains rejection feedback accurately and provides a relevant improvement plan.
+- AI Mock Interview requires category and role selection before generating exactly 15 relevant questions.
+- Student profiles contain editable Technical Competencies, Domain Competencies, Projects, and career information.
+- Current Relevant Skills uses available internship data.
+- Skill Development provides personalized learning paths and persistent progress.
+- AI Career Assistant uses actual profile and opportunity data.
+- Existing working features are preserved.
+- Important records persist in the database.
+- Student information and API credentials are protected.
+- The application has been tested and remaining limitations are documented.
+
+**Final objective: Deliver Free Intern as a genuinely functional, professional, student-friendly AI-powered internship and career platform — not merely an attractive UI or a static demonstration.**
+
+Preserve the existing project, implement the missing functionality, verify the results, and make the entire experience clean, realistic, reliable, and useful for students.

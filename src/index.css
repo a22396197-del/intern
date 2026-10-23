@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --deep-indigo: #292344;
+    --rich-violet: #6554C0;
+    --soft-lavender: #EEE9FF;
+    --natural-teal: #2A9D8F;
+    --fresh-mint: #DDF5EA;
+    --warm-coral: #F28B72;
+    --soft-peach: #FFF0E8;
+    --warm-off-white: #FAF9F6;
+    --pure-white: #FFFFFF;
+    --dark-charcoal: #292936;
+    --muted-grey: #747484;
+    --soft-border: #E8E5EF;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #292936;
+    background-color: #FAF9F6;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Plus Jakarta Sans', system-ui, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.88) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-logo-reveal {
+  animation: logoReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

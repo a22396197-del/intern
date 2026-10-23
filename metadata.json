@@ -1,0 +1,7 @@
+{
+  "name": "Free Intern",
+  "description": "Discover Internships. Build Skills. Start Your Career. Complete AI-powered internship discovery, eligibility verification, resume scanner, mock interviews, and skill development platform for students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
